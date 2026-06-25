@@ -1,0 +1,290 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f8fb;
+}
+
+/* Navbar */
+header {
+    background: #0077b6;
+    padding: 15px 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: yellow;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=1200');
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.hero-content button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border: none;
+    background: #00b4d8;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-content button:hover {
+    background: #0077b6;
+}
+
+/* Medicine Section */
+.medicine-section {
+    padding: 60px 40px;
+}
+
+.medicine-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #023047;
+}
+
+.medicine-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.medicine-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.medicine-card:hover {
+    transform: translateY(-10px);
+}
+
+.medicine-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.medicine-card h3 {
+    margin: 15px 0;
+    color: #0077b6;
+}
+
+.medicine-card p {
+    margin-bottom: 15px;
+}
+
+.medicine-card button {
+    padding: 10px 20px;
+    border: none;
+    background: #0077b6;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Reminder Box */
+.reminder-box {
+    width: 80%;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.reminder-box h2 {
+    margin-bottom: 20px;
+    color: #023047;
+}
+
+.reminder-box input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reminder-box button {
+    padding: 12px 25px;
+    border: none;
+    background: #00b4d8;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#output {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+/* About */
+.about {
+    padding: 60px;
+    text-align: center;
+    background: #caf0f8;
+}
+.about button{
+    padding: 10px 20px;
+    border: none;
+    background: #0077b6;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button a{
+    color: white;
+    text-decoration: none;
+}
+
+ 
+.about h2 {
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background: #023047;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Login & Signup */
+.form-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #00b4d8, #0077b6);
+}
+
+.form-box {
+    background: white;
+    padding: 40px;
+    width: 350px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    color: #0077b6;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.form-box p {
+    margin-top: 15px;
+}
+
+.form-box a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+}
+
+.hero-content p {
+        font-size: 18px;
+}
+

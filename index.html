@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Reminder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">💊 MediReminder</div>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#medicines">Medicines</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="remainder.html">Reminder</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Never Forget Your Medicines</h1>
+            <p>Track medicines and reminders easily with MediReminder.</p>
+            <button><a href="signup.html">Get Started</a></button>
+        </div>
+    </section>
+    <!-- Medicine Section -->
+    <section id="medicines" class="medicine-section">`
+        <h2>Popular Medicines</h2>
+
+        <div class="medicine-container">
+
+            <div class="medicine-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2966/2966487.png" alt="Paracetamol">
+                <h3>Paracetamol</h3>
+                <p>Used for fever and pain relief.</p>
+                <button><a href="calculate.html"> Calculate Now ></a></button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4320/4320371.png" alt="Vitamin C">
+                <h3>Vitamin C</h3>
+                <p>Boosts immunity and health.</p>
+                 <button><a href="calculate.html"> Calculate Now ></a></button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2785/2785819.png" alt="Insulin">
+                <h3>Insulin</h3>
+                <p>Controls blood sugar level.</p>
+                <button><a href="calculate.html"> Calculate Now ></a></button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png" alt="Antibiotics">
+                <h3>Antibiotics</h3>
+                <p>Treat bacterial infections.</p>
+                <button><a href="calculate.html"> Calculate Now ></a></button>
+            </div>
+
+             <div class="medicine-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/822/822143.png" alt="Cough Syrup">
+                <h3>Cough Syrup</h3>
+                <p>Relieves cough and cold.</p>
+                <button><a href="calculate.html"> Calculate Now ></a></button>
+            </div>
+
+            <div class="medicine-card">
+                <img src="https://naturalheartdoctor.com/wp-content/uploads/2023/03/iStock-1320153696.jpg" alt="Blood Pressure">
+                <h3>BP Medicine</h3>
+                <p>Maintains blood pressure.</p>
+                <button><a href="calculate.html"> Calculate Now ></a></button>
+            </div>
+
+        </div>
+    </section>
+
+<!-- Reminder Section -->
+    <section class="reminder-box">
+        <h2>Set Medicine Reminder</h2>
+
+        <input type="text" id="medicineName" placeholder="Enter Medicine Name">
+
+        <input type="time" id="medicineTime">
+
+        <button onclick="setReminder()">Set Reminder</button>
+
+        <p id="output"></p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About MediReminder</h2>
+        <p>
+
+    MediReminder helps users remember their medicines on time.
+            It provides reminders, medicine tracking, and health management. <br>
+            At MediReminder, we believe that patient safety is paramount. That’s why every calculator we release undergoes a meticulous development and validation cycle. 
+            This includes comprehensive testing, peer reviews by medical professionals, and validation against real-world data to address all potential edge cases. 
+            Our commitment to this rigorous process means that while development may take time, the result is a tool you can trust.
+               
+        </p>
+        <br>
+        <br> 
+        <div>
+           <button> <a href="contact.html">Contact Us</a></button> 
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 MediReminder | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

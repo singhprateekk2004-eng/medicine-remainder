@@ -1,0 +1,132 @@
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+
+  <h2>Contact Us</h2>
+
+  <div class="contact-box">
+
+    <form id="contactForm">
+
+      <input type="text" id="userName" placeholder="Enter Your Name" required>
+
+      <input type="email" id="userEmail" placeholder="Enter Your Email" required>
+
+      <textarea id="userMessage" rows="5" placeholder="Enter Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<style>
+
+.contact-section{
+  width:90%;
+  margin:50px auto;
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-section h2{
+  text-align:center;
+  margin-bottom:20px;
+  color:#0b5ed7;
+}
+
+.contact-box{
+  width:100%;
+}
+
+#contactForm{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+#contactForm input,
+#contactForm textarea{
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+
+#contactForm button{
+  padding:14px;
+  border:none;
+  background:#0b5ed7;
+  color:white;
+  font-size:18px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+#contactForm button:hover{
+  background:#084298;
+}
+
+</style>
+
+<!-- EMAILJS SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+  // EMAILJS PUBLIC KEY
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  document.getElementById("contactForm")
+  .addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const params = {
+
+      from_name: document.getElementById("userName").value,
+
+      from_email: document.getElementById("userEmail").value,
+
+      message: document.getElementById("userMessage").value
+    };
+
+    emailjs.send(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      params
+    )
+
+    .then(function(){
+
+      alert("Message Sent Successfully!");
+
+      // SMS LINK OPEN
+      window.open(
+        "sms:+91745179754=" +
+        encodeURIComponent(
+          "New Contact Message From: " +
+          params.from_name +
+          "\nMessage: " +
+          params.message
+        )
+      );
+
+      document.getElementById("contactForm").reset();
+
+    })
+
+    .catch(function(error){
+
+      alert("Failed To Send Message");
+
+      console.log(error);
+
+    });
+
+  });
+
+</script>

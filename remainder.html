@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medi Reminder</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f7fb;
+      color:#333;
+    }
+
+    
+    
+    /* Form Section */
+    .container{
+      width:90%;
+      max-width:1100px;
+      margin:40px auto;
+      background:white;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .container h2{
+      text-align:center;
+      margin-bottom:25px;
+      color:#0b5ed7;
+    }
+
+    form{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .form-group{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .form-group label{
+      margin-bottom:8px;
+      font-weight:bold;
+    }
+
+    .form-group input,
+    .form-group select{
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:15px;
+    }
+
+    .btn{
+      grid-column:1/-1;
+      text-align:center;
+    }
+
+    .btn button{
+      padding:14px 30px;
+      border:none;
+      background:#0b5ed7;
+      color:white;
+      font-size:18px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    .btn button:hover{
+      background:#084298;
+    }
+
+     /* Reminder List */
+    .reminder-list{
+      width:90%;
+      margin:40px auto;
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .reminder-list h2{
+      margin-bottom:20px;
+      text-align:center;
+      color:#0b5ed7;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    table th, table td{
+      padding:12px;
+      border:1px solid #ddd;
+      text-align:center;
+    }
+
+    table th{
+      background:#0b5ed7;
+      color:white;
+    }
+
+    /* Footer */
+    footer{
+      background:#0b5ed7;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+
+    @media(max-width:768px){
+      .hero h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  
+
+  <!-- Reminder Form -->
+  <div class="container" id="formSection">
+    <h2>Add Medicine Reminder</h2>
+
+    <form id="medicineForm">
+
+      <div class="form-group">
+        <label>Patient Name</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" id="age" required>
+      </div>
+
+      <div class="form-group">
+        <label>Weight</label>
+        <input type="number" id="weight" required>
+      </div>
+
+      <div class="form-group">
+        <label>Medicine Name</label>
+        <input type="text" id="medicine" required>
+      </div>
+
+      <div class="form-group">
+        <label>Dosage</label>
+        <input type="text" id="dosage" placeholder="500mg">
+      </div>
+
+      <div class="form-group">
+        <label>Medicine Type</label>
+        <select id="type">
+          <option>Tablet</option>
+          <option>Syrup</option>
+          <option>Injection</option>
+          <option>Capsule</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Frequency</label>
+        <select id="frequency">
+          <option>Once Daily</option>
+          <option>Twice Daily</option>
+          <option>Three Times Daily</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Reminder Time</label>
+        <input type="time" id="time" required>
+      </div>
+
+      <div class="btn">
+        <button type="submit">Add Reminder</button>
+      </div>
+
+    </form>
+  </div>
+
+  
+  <!-- Reminder Table -->
+  <div class="reminder-list">
+    <h2>Reminder List</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Frequency</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+
+      <tbody id="tableBody">
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 MediReminder System | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+
+    function scrollToForm(){
+      document.getElementById("formSection").scrollIntoView({
+        behavior:"smooth"
+      });
+    }
+
+    const form = document.getElementById("medicineForm");
+    const tableBody = document.getElementById("tableBody");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const medicine = document.getElementById("medicine").value;
+      const dosage = document.getElementById("dosage").value;
+      const frequency = document.getElementById("frequency").value;
+      const time = document.getElementById("time").value;
+
+      const row = `
+        <tr>
+          <td>${name}</td>
+          <td>${medicine}</td>
+          <td>${dosage}</td>
+          <td>${frequency}</td>
+          <td>${time}</td>
+        </tr>
+      `;
+
+      tableBody.innerHTML += row;
+
+      alert("Medicine Reminder Added Successfully!");
+
+      form.reset();
+    });
+
+  </script>
+
+</body>
+</html>

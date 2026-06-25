@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Dose Calculator</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container{
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2563eb;
+        }
+
+        .form-group{
+            margin-bottom: 18px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button{
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background: #1d4ed8;
+        }
+
+        .result{
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef4ff;
+            border-left: 6px solid #2563eb;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result h2{
+            margin-bottom: 15px;
+            color: #2563eb;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Medicine Dose Calculator</h1>
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="age" placeholder="Enter age">
+        </div>
+
+        <div class="form-group">
+            <label>Age Unit</label>
+            <select id="ageUnit">
+                <option value="Years">Years</option>
+                <option value="Months">Months</option>
+                <option value="Days">Days</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Weight</label>
+            <input type="number" id="weight" placeholder="Enter weight">
+        </div>
+
+        <div class="form-group">
+            <label>Weight Unit</label>
+            <select id="weightUnit">
+                <option value="kg">Kilogram (kg)</option>
+                <option value="lb">Pound (lb)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Drug Name</label>
+            <input type="text" id="drug" placeholder="Enter drug name">
+        </div>
+
+        <div class="form-group">
+            <label>Route</label>
+            <select id="route">
+                <option>Oral</option>
+                <option>IV</option>
+                <option>IM</option>
+                <option>Topical</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Formulation Strength (mg)</label>
+            <input type="number" id="strength" placeholder="Enter strength">
+        </div>
+
+        <div class="form-group">
+            <label>Frequency</label>
+            <select id="frequency">
+                <option>Once Daily</option>
+                <option>Twice Daily</option>
+                <option>Three Times Daily</option>
+                <option>Four Times Daily</option>
+            </select>
+        </div>
+
+        <button onclick="calculateDose()">
+            Calculate Dose
+        </button>
+
+        <div class="result" id="result">
+
+            <h2>Dose Result</h2>
+
+            <p id="output"></p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function calculateDose(){
+
+            let age = document.getElementById("age").value;
+            let ageUnit = document.getElementById("ageUnit").value;
+
+            let weight = parseFloat(document.getElementById("weight").value);
+            let weightUnit = document.getElementById("weightUnit").value;
+
+            let drug = document.getElementById("drug").value;
+
+            let route = document.getElementById("route").value;
+
+            let strength = parseFloat(document.getElementById("strength").value);
+
+            let frequency = document.getElementById("frequency").value;
+
+            // Convert pounds to kg
+            if(weightUnit === "lb"){
+                weight = weight * 0.453592;
+            }
+
+            // Example Dose Formula
+            let dose = weight * 10;
+
+            let totalTablets = dose / strength;
+
+            document.getElementById("result").style.display = "block";
+
+            document.getElementById("output").innerHTML = `
+
+                <strong>Patient Details:</strong><br><br>
+
+                Age: ${age} ${ageUnit}<br>
+                Weight: ${weight.toFixed(2)} kg<br>
+                Drug: ${drug}<br>
+                Route: ${route}<br>
+                Frequency: ${frequency}<br><br>
+
+                <strong>Calculated Dose:</strong><br>
+
+                ${dose.toFixed(2)} mg<br><br>
+
+                <strong>Required Quantity:</strong><br>
+
+                ${totalTablets.toFixed(2)} tablet(s) / dose
+
+            `;
+        }
+
+    </script>
+
+</body>
+</html>
